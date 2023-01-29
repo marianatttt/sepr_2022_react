@@ -2,7 +2,7 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {commentValidator} from "../../validators/commentValidator";
-import {userService} from "../../services";
+import {commentService} from "../../services";
 
 
    const CommentForm = ({setComments}) => {
@@ -12,7 +12,7 @@ import {userService} from "../../services";
        })
 
    const submit = async (comment) => {
-       const {data} = await userService.create(comment);
+       const {data} = await commentService.create(comment);
       setComments(prev=> [...prev, data])
    reset()
     }
